@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Email</title>
+</head>
+<body style="background: black; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 16px;">
+   <div style="margin: 0;padding: 0; color: white; border: 0; outline: 0; font-size: 100%; font-weight: inherit; font-style: inherit; font-family: inherit;">
+      <h4 style="font-size: 22px; font-weight: 500; font-family: inherit; color: inherit;">Xin chào <%= fullname %></h4>
+      <p style="color: inherit;">Phone: <%= phone %></p>
+      <p style="color: inherit;">Address: <%= address %></p>
+      <table style="color: inherit;">
+         <tr>
+            <th style="width: 40%;color: inherit;">Tên sản phẩm</th>
+            <th style="width: 20%;color: inherit;">Hình ảnh</th>
+            <th style="width: 15%;color: inherit;">Giá</th>
+            <th style="width: 10%;color: inherit;">Số lượng</th>
+            <th style="width: 15%;color: inherit;">Thành Tiền</th>
+         </tr>
+         <% if(products.length > 0) { %>
+            <% for (let product of products ) { %>
+         <tr>
+            <td style="width: 40%;color: inherit;"><%= product.productId.name %></td>
+            <td style="width: 20%;color: inherit;"><img alt="product image" src="<%= product.productId.img1 %>" style="display: block;"></td>
+            <td style="width: 15%;color: inherit;"><%= product.productId.price %> VND</td>
+            <td style="width: 10%;color: inherit;"><%= product.count %></td>
+            <td style="width: 15%;color: inherit;"><%= product.productId.price*product.count %></td>
+         </tr>
+         <% }} %>
+      </table>
+      <div style="margin: 0;padding: 0; color: white; border: 0; outline: 0; font-size: 100%; font-weight: inherit; font-style: inherit; font-family: inherit;">
+         <h2 style="font-size: 22px; font-weight: 500; font-family: inherit; color: inherit;">Tổng Thanh Toán</h2>
+         <p style="color: inherit;"><%= total %> VND</p>
+      </div>
+      <p style="color: inherit;">Cảm ơn bạn</p>
+   </div>
+</body>
+</html>
